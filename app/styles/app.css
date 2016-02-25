@@ -1,0 +1,35 @@
+body {
+  background-color: whitesmoke;
+}
+
+.dc-chart rect.bar-chart {
+  opacity: .5;
+}
+
+.dc-chart rect.gap {
+  transform: translate(2px, -1px);
+  stroke-width: 3px;
+  fill: rgb(245, 245, 245);
+}
+
+.dc-chart rect.bar-chart.above {
+  transform: translate(0px, 0px);
+  opacity: 1;
+}
+
+.dc-chart rect.actual {
+  pointer-events: none;
+}
+
+.row .chart-panel .panel-body {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.chart-panel .explainer p {
+  margin: 15px 0 15px 0;
+}
+
+.chart-panel img {
+  width: 100%;
+}
