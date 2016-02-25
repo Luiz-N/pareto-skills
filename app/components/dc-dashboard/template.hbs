@@ -1,0 +1,215 @@
+{{!-- {{dc-dashboard/ordinal-boxplot
+  dimension=unitDim
+  groups=unitGroupsBarChart
+  width=700
+  height=300
+  colors=unitColors
+  order=order
+  id="unitBoxPlot"
+}} --}}
+
+{{!-- {{dc-dashboard/ordinal-boxplot
+  dimension=projectDim
+  groups=unitGroupsBarChart
+  width=700
+  height=300
+  colors=unitColors
+  order=order
+  id="unitBoxPlot"
+}} --}}
+
+
+<div class="container-fluid">
+  <div class="col-md-12">
+    <div class="jumbotron">
+      <h2>Datascope Timetracker</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem quisquam, porro error nemo, eos laudantium ducimus, architecto eius sequi soluta quidem perspiciatis nobis voluptatum cupiditate rem corrupti illo animi doloremque!</p>
+      <p></p>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="chart-panel panel panel-default">
+      <h4 class="text-center">Coding Time Boxplots</h4>
+      <div class="panel-body">
+        {{dc-dashboard/box-plot
+          dimension=dailyDateDim
+          groups=projectGroupsOverTime
+          width=1350
+          height=400
+          id="boxsOverTime"
+        }}
+      </div>
+      <div class="panel-footer col-md-12">
+        <div class="row">
+          <div class="chart-panel panel panel-default col-md-12">
+            {{!-- <div class="panel-heading">
+              <h3 class="panel-title">Panel title</h3>
+            </div> --}}
+            <div class="explainer col-md-6">
+              <p class="well well-md">
+                Every green box in the chart above represents the Interquartile Range (IQR) for the distribution of coding hours per day from the entire population
+                of students who have ever gone through the bootcamp. Along with each box is a line that represents the student's individual hours of work for that respective day.
+                If the line falls within the IQR it is colored green otherwise it is black. This allows a user to be able to quickly scan the chart to
+                identify any potential outliers where the student may be spending concerningly large or insufficient amounts of time.
+                For this example we see several black lines over their range during the first unit. This could potentially be explained by the below average time put in during the prep phase.
+                {{!-- Every day in the chart above has a green boxplot whose height is the Interquartile Range  --}}
+              </p>
+              <p class="well well-md">
+                The chart on the right shows Fred's current absolute number of hours worked faceted by project. In this case I have bucketed all non project work
+                as it own called "exercies".
+                {{!-- Every day in the chart above has a green boxplot whose height is the Interquartile Range  --}}
+              </p>
+              <button type="button" class="btn btn-default" {{action "resetCharts"}}>Reset Charts</button>
+            </div>
+            <div class="panel-body col-md-offset-6">
+              {{dc-dashboard/ordinal-boxplot
+                dimension=projectDim
+                groups=projectGroupsBarChart
+                width=800
+                height=350
+                colors=projectColors
+                order=projectOrder
+                id="projectBoxPlot"
+              }}
+              {{!-- {{dc-dashboard/ordinal-boxplot
+                dimension=unitDim
+                groups=unitGroupsBarChart
+                width=800
+                height=350
+                colors=unitColors
+                order=unitOrder
+                id="unitBoxPlot"
+              }} --}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-md-12">
+    <div class="chart-panel panel panel-default">
+      <h4 class="text-center">Coding Time Boxplots</h4>
+      <div class="panel-body">
+        {{dc-dashboard/line-chart
+          dimension=dailyDateDim
+          groups=languageGroupsOverTime
+          width=1350
+          height=400
+          id="languagesOverTime"
+          colors=languageColors
+        }}
+      </div>
+      <div class="panel-footer col-md-12">
+        <div class="row">
+          <div class="chart-panel panel panel-default col-md-12">
+            {{!-- <div class="panel-heading">
+              <h3 class="panel-title">Panel title</h3>
+            </div> --}}
+            <div class="explainer col-md-6">
+              <p class="well well-lg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid fugit pariatur eaque odit quibusdam et, similique suscipit repudiandae molestias excepturi. Accusantium hic ipsum necessitatibus neque illo nostrum ad quasi repellendus.</p>
+              <button type="button" class="btn btn-default" {{action "resetCharts"}}>Reset Charts</button>
+            </div>
+            <div class="panel-body col-md-offset-6">
+              {{dc-dashboard/ordinal-boxplot
+                dimension=languageDim
+                groups=languageGroupsBarChart
+                width=800
+                height=350
+                order=languageOrder
+                colors=languageBoxColors
+                id="languageBoxPlot"
+              }}
+{{!--               {{dc-dashboard/bar-chart
+                dimension=languageDim
+                group=languageGroupsBarChart
+                width=700
+                height=350
+                colors=langaugeBarColors
+                id="languageBarChart"
+              }} --}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <div class="chart-panel panel panel-default">
+      <h4 class="text-center">Coding Time Boxplots</h4>
+      <div class="panel-body">
+        {{dc-dashboard/cdf-chart
+          dimension=dailyDateDim
+          group=cdfGroup
+          width=1350
+          height=500
+          id="cdfChart"
+          colors=languageCdfColors
+        }}
+      </div>
+      <div class="panel-footer col-md-12">
+        <div class="row">
+          <div class="chart-panel panel panel-default col-md-12">
+            {{!-- <div class="panel-heading">
+              <h3 class="panel-title">Panel title</h3>
+            </div> --}}
+            <div class="explainer col-md-6">
+              <p class="well well-lg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid fugit pariatur eaque odit quibusdam et, similique suscipit repudiandae molestias excepturi. Accusantium hic ipsum necessitatibus neque illo nostrum ad quasi repellendus.</p>
+              <button type="button" class="btn btn-default" {{action "resetCharts"}}>Reset Charts</button>
+            </div>
+            <div class="panel-body col-md-offset-6">
+              <img src="http://i0.wp.com/digitalintelligencetoday.com/wp-content/uploads/2014/12/screenshot_799.png" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  {{!-- <div class="row">
+    {{dc-dashboard/bar-chart
+      dimension=unitDim
+      group=unitGroupsBarChart
+      colors=unitColor
+      width=700
+      height=300
+      order=order
+      id="unitBarChart"
+    }}
+  </div>
+  <div class="row">
+    {{dc-dashboard/cdf-chart
+      dimension=dailyDateDim
+      group=cdfGroup
+      width=800
+      height=500
+      id="cdfChart"
+      colors=languageCdfColors
+    }}
+  </div> --}}
+
+
+
+{{!-- {{dc-dashboard/bar-chart
+  dimension=fluctuationDim
+  group=fluctuationGroup
+  data=cfData
+  width=700
+  height=300
+  id="fluxChart1"
+}} --}}
+
+{{!-- {{dc-dashboard/range-chart
+  dimension=fluctuationDim
+  group=fluctuationGroup
+  data=cfData
+  width=700
+  height=300
+  id="fluxChart"
+}} --}}
+
+
+
+{{yield}}
