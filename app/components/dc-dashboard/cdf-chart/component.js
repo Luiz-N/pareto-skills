@@ -53,10 +53,10 @@ export default Ember.Component.extend({
       //   debugger;
       //   return d.value.totalPercent;
       // })
-        // .elasticX(true)
+      .margins({top: 10, right: 50, bottom: 20, left: 60})
         .brushOn(false)
-        .legend(dc.legend().x(60).y(10).itemHeight(13).gap(5))
-      .yAxisLabel('% of a "master"')
+        .legend(dc.legend().x(70).y(10).itemHeight(13).gap(5))
+      // .yAxisLabel('% of a "master"')
       .y(d3.scale.linear().domain([0, 100]))
       // .brushOn(true)
       // .interpolate('basis-open')
@@ -65,6 +65,20 @@ export default Ember.Component.extend({
       .tickFormat(function(v, i) {
         let units = ["Prep Phase", "Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Presentations"];
         return units[i];
+      })
+
+      cdfChart
+      .yAxis().tickValues([30,50,80,100]).tickFormat(function(v) {
+        if (v === 30) {
+          return "Novice"
+        }
+        else if (v === 50) {
+          return "Competent";
+        }
+        else if (v === 80) {
+          return "Pro"
+        }
+          return "Master";
       })
       // .renderlet(function(chart) {
       //   chart.selectAll("g.sub._1 path").style("stroke-dasharray",3)

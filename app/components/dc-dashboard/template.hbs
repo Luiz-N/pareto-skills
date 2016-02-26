@@ -1,36 +1,40 @@
 <div class="container col-md-10 col-md-offset-1">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
       <div class="jumbotron">
-        <h2>Datascope Timetracker</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem quisquam, porro error nemo, eos laudantium ducimus, architecto eius sequi soluta quidem perspiciatis nobis voluptatum cupiditate rem corrupti illo animi doloremque!</p>
-        <p></p>
+        <h2>Pareto Time Tracker</h2>
+        <p>This site is a front-end demo of a potential tool loosely tailored for a data-science bootcamp. The tool would be able to log any student's coding activity by detecting languages, libraries, and even project names. The collection of the data would utilize the <a target="_blank" href="https://wakatime.com/help/getting-started/faq#what-data-is-logged">WakaTime Service</a> which when installed as an extension on IDEs or coding notebooks will passively collect the necessary data and push it to the tool's custom server for aggregation and analysis. This is one possible use case of that aggregated data.</p>
+        <p>The dashboard below shows the fictional data of a student named Fred who's activity is compared to the historical population of all previous students who have gone through the bootcamp. The use case being illustrated here is a dashboard that can help spot outliers in a student's activity. This is only the tip of the iceberg though... there could be many more relevant use-cases with this data.</p>
       </div>
     </div>
   </div>
 
   <div class="row">
-    <div class="chart-panel panel panel-default col-md-6">
-      <div class="panel-body col-md-12 text-center">
-        <img src="http://cl.ly/231V3D241M2W/Image%202016-02-26%20at%2011.10.34%20AM.png" alt="">
-      </div>
-      <div class="explainer col-md-12">
-        <p class="well well-md">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid fugit pariatur eaque odit quibusdam et, similique suscipit repudiandae molestias excepturi. Accusantium hic ipsum necessitatibus neque illo nostrum ad quasi repellendus.</p>
-      </div>
+    <div class="col-md-6">
+      <div class="chart-panel panel panel-default clearfix">
+        <div class="panel-body col-md-12 text-center">
+          <img src="http://cl.ly/231V3D241M2W/Image%202016-02-26%20at%2011.10.34%20AM.png" alt="">
+        </div>
+        <div class="explainer col-md-12">
+          <p class="well well-sm">The first chart below starts with a stacked bar graph of the daily median amount of time a typical student spends coding in different languages. The amount of time Fred spends on a language fills each respective bar resulting in either gaps or a surplus. The best insight from this chart comes from hovering over the legend to find clusters or clicking and dragging over the chart to filter the data.</p>
+        </div>
     </div>
-    <div class="chart-panel panel panel-default col-md-6">
-      <div class="panel-body col-md-12 text-center">
-        <img src="http://cl.ly/13393X091S0I/Image%202016-02-25%20at%209.27.03%20PM.png" alt="">
-      </div>
-      <div class="explainer col-md-12">
-        <p class="well well-md">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid fugit pariatur eaque odit quibusdam et, similique suscipit repudiandae molestias excepturi. Accusantium hic ipsum necessitatibus neque illo nostrum ad quasi repellendus.</p>
+    </div>
+    <div class="col-md-6">
+      <div class="chart-panel panel panel-default clearfix">
+        <div class="panel-body col-md-12 text-center">
+          <img src="http://cl.ly/13393X091S0I/Image%202016-02-25%20at%209.27.03%20PM.png" alt="">
+        </div>
+        <div class="explainer col-md-12">
+          <p class="well well-sm">The charts after the first one use simplified box plots to help see where Fred's time falls within the respective distribution. Each box is the <a target="_blank" href="https://en.wikipedia.org/wiki/Interquartile_range">I.Q.R.</a> for the historical population. If his time falls within the box then his line matches the box's color otherwise it is highlighted black. This is intentional since this use case is to spot outliers and not analyze the population.</p>
+        </div>
       </div>
     </div>
   </div>
 
   <div class="row">
     <div class="chart-panel panel panel-default">
-      <h4 class="text-center">Coding Time Boxplots</h4>
+      <h4 class="text-center">Median Coding Time by Language Filled with Students Personal Time</h4>
       <div class="long-chart panel-body">
         {{#if longHeight}}
           {{dc-dashboard/line-chart
@@ -47,7 +51,7 @@
         <div class="chart-panel panel panel-default row">
           <div class="short-chart panel-body col-md-4">
             <div class="panel-heading">
-              <h3 class="panel-title text-center">Panel title</h3>
+              <h3 class="panel-title text-center">Boxplots Grouped by Unit</h3>
             </div>
             {{#if shortHeight}}
               {{dc-dashboard/ordinal-boxplot
@@ -64,7 +68,7 @@
 
           <div class="short-chart panel-body col-md-4">
             <div class="panel-heading">
-              <h3 class="panel-title text-center">Panel title</h3>
+              <h3 class="panel-title text-center">Boxplots Grouped by Project</h3>
             </div>
             {{#if shortHeight}}
               {{dc-dashboard/ordinal-boxplot
@@ -81,7 +85,7 @@
           </div>
           <div class="short-chart panel-body col-md-4">
             <div class="panel-heading">
-              <h3 class="panel-title text-center">Panel title</h3>
+              <h3 class="panel-title text-center">Boxplots Grouped by Language</h3>
             </div>
             {{#if shortHeight}}
               {{dc-dashboard/ordinal-boxplot
@@ -95,33 +99,23 @@
               }}
             {{/if}}
           </div>
-          <p class="well well-md">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid fugit pariatur eaque odit quibusdam et, similique suscipit repudiandae molestias excepturi. Accusantium hic ipsum necessitatibus neque illo nostrum ad quasi repellendus.</p>
+          <p class="well well-md">Clicking on the charts above allow you to dynamically filter and explore the data. For this case it looks like Fred spent significantly less time than normal during the prep phase which might explain his above average time usage during the first unit on Project 1. It looks like he was able to recover but this might not always be the case. Being able to track a student's readiness before arriving is key to a succesful bootcamp. If you click on Project 4 you'll also see that it seems like Fred was in charge of the javascript portion of the project. You can reset the charts at anytime by clicking the button below.</p>
+          <div class="long-chart panel-body">
+            <div class="panel-heading">
+              <h3 class="panel-title text-center">Boxplots Grouped by Day</h3>
+            </div>
+            {{#if longHeight}}
+              {{dc-dashboard/box-plot
+                dimension=dailyDateDim
+                groups=projectGroupsOverTime
+                width=longWidth
+                height=longHeight
+                id="projectsOverTime"
+                colors=greyBlack
+              }}
+            {{/if}}
+          </div>
         </div>
-        <button type="button" class="btn btn-default" {{action "resetCharts"}}>Reset Charts</button>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="row">
-    <div class="chart-panel panel panel-default">
-      <div class="long-chart panel-body">
-        <div class="panel-heading">
-          <h3 class="panel-title">Panel title</h3>
-        </div>
-        {{#if longHeight}}
-          {{dc-dashboard/box-plot
-            dimension=dailyDateDim
-            groups=projectGroupsOverTime
-            width=longWidth
-            height=longHeight
-            id="projectsOverTime"
-            colors=greyBlack
-          }}
-        {{/if}}
-      </div>
-      <p class="well well-md">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente cupiditate illum laboriosam vero neque amet, quam impedit quas delectus reiciendis architecto quidem atque accusantium ut hic nobis mollitia libero laborum.</p>
-      <div class="panel-footer">
         <button type="button" class="btn btn-default" {{action "resetCharts"}}>Reset Charts</button>
       </div>
     </div>
@@ -129,13 +123,17 @@
 
   <div class="row">
     <div class="chart-panel panel panel-default row">
-      <div class="panel-body col-md-5 text-center">
-        <img src="http://cl.ly/231V3D241M2W/Image%202016-02-26%20at%2011.10.34%20AM.png" alt="">
+      <div class="panel-body col-md-5">
+        {{!-- <img src="http://cl.ly/231V3D241M2W/Image%202016-02-26%20at%2011.10.34%20AM.png" alt=""> --}}
         <div class="explainer">
-          <p class="well well-md">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid fugit pariatur eaque odit quibusdam et, similique suscipit repudiandae molestias excepturi. Accusantium hic ipsum necessitatibus neque illo nostrum ad quasi repellendus.</p>
+          <p class="well well-md">To understand this section it will help to first click a reset button above or below. The chart on the right is an attempt at applying a <a href="https://en.wikipedia.org/wiki/Pareto_principle" target="_blank">Pareto Distribution</a> to Malcom Gladwell's 10,000 Hour Theory. <a target="_blank" href="http://techcrunch.com/2015/10/17/specialization-polymaths-and-the-pareto-principle-in-a-convergence-economy/">This article</a> does a good job of explaining the concept. Basically the first 2,000 hours of coding should take you 80% of the way to being a master. Pareto's law is much less controversial than Gladwell's but if we assume that most hours at a bootcamp are "deliberate practice" simply due to the novelty of the languages/concepts and the structure of the bootcamp constantly pushing the student there might be some merit to it. If it is true it could help explain the naive <a target="_blank" href="https://www.google.com/search?q=dunning+kruger+effect&safe=off&espv=2&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjcq6Scp5bLAhXD9R4KHfBzBZEQ_AUIBygB&biw=1440&bih=805#imgrc=qJ8kM68JCoQoIM%3A">spike in confidence</a> some people obtain after learning new skills but before really having credible experience.</p>
+          <p class="well well-md">What I like about this chart is how encouraging Fred's progress has been but at the same time how honest the shape of the curve is at implying the long road ahead for him. A dashboard of data like this would be very compelling to show prospective employers.</p>
         </div>
       </div>
       <div class="medium-chart panel-body text-center col-md-7">
+      <div class="panel-heading">
+        <h3 class="panel-title text-center">Journey to Master</h3>
+      </div>
         {{#if mediumHeight}}
           {{dc-dashboard/cdf-chart
             dimension=dailyDateDim
@@ -147,12 +145,15 @@
           }}
         {{/if}}
       </div>
+
       <div class="panel-footer col-md-12">
         <button type="button" class="btn btn-default" {{action "resetCharts"}}>Reset Charts</button>
       </div>
     </div>
   </div>
 </div>
+
+<div class="text-center">A <a target="_blank" href="https://twitter.com/Hey_Luiz">hey Luiz</a> Production</div>
 
   {{!-- <div class="row">
     {{dc-dashboard/bar-chart

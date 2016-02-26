@@ -165,7 +165,7 @@ export default Ember.Component.extend({
               .css('stroke-width', '2px')
               .css('transform', 'translateX(1px)')
               .css('width', width - 5);
-            $r.text().indexOf("actualLine") != -1 ? $r.attr("height", "1px").addClass('actual') : null;
+            $r.text().indexOf("actualLine") != -1 ? $r.css("height", "1px").addClass('actual') : null;
           })
         $(chart.anchor()+' .dc-legend g:nth-child(even)').remove();
         let remaining = $('#boxsOverTime .dc-legend .dc-legend-item').splice(1);

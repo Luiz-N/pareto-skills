@@ -78,8 +78,8 @@ export default Ember.Route.extend({
           // unit 1
           //week 1
           record.unit = "Unit 1";
-          record.project = "Benson"
-          record.option = "Benson"
+          record.project = "Project 1"
+          record.option = "Project 1"
           if (languageKey === "python") {
             avgLanguageHours = avgLanguageHours*1.75;
             currentLanguageHours = avgLanguageHours * 1.35;
@@ -88,7 +88,7 @@ export default Ember.Route.extend({
             tools.push("matplotlib");
           }
           else {
-            // record.project = "Benson"
+            // record.project = "Project 1"
             avgLanguageHours = 0;
             currentLanguageHours = 0;
           }
@@ -97,8 +97,8 @@ export default Ember.Route.extend({
           // unit 2
             record.unit = "Unit 2";
           if (daysCounter > 21) {
-            record.project = "Luther";
-            record.option = "Luther";
+            record.project = "Project 2";
+            record.option = "Project 2";
           }
           if (languageKey === "python") {
             avgLanguageHours = avgLanguageHours*1.75;
@@ -139,8 +139,8 @@ export default Ember.Route.extend({
             }
           }
           else if (daysCounter >= 35) {
-            record.project = "Mcnulty";
-            record.option = "Mcnulty";
+            record.project = "Project 3";
+            record.option = "Project 3";
             if (languageKey === "js") {
               avgLanguageHours = avgLanguageHours*1.1;
               currentLanguageHours = avgLanguageHours - randomNumber(0,1);
@@ -164,10 +164,10 @@ export default Ember.Route.extend({
         else if (daysCounter <= 63) {
           // unit 4
           record.unit = "Unit 4";
-          // record.project = "Fletcher";
+          // record.project = "Project 4";
           if (languageKey == "python") {
             avgLanguageHours = avgLanguageHours;
-            currentLanguageHours = avgLanguageHours + randomNumber();
+            currentLanguageHours = avgLanguageHours;
             tools.push("flask");
             tools.push("pandas");
             tools.push("numpy");
@@ -190,18 +190,22 @@ export default Ember.Route.extend({
           }
           if (daysCounter > 56) {
             // currentLanguageHours = null;
-            record.project = "Fletcher";
-            // tools.push("flask");
-            // tools.push("pandas");
-            // tools.push("D3");
-            // tools.push("Bootstrap");
-            record.option = "Fletcher";
+            record.project = "Project 4";
+            if (languageKey == "python") {
+              avgLanguageHours = avgLanguageHours;
+              currentLanguageHours = avgLanguageHours/1.5;
+            }
+            else if (languageKey == "js") {
+              avgLanguageHours = avgLanguageHours;
+              currentLanguageHours = avgLanguageHours*1.5;
+            }
+            record.option = "Project 4";
           }
         }
         else {
-          record.option = "Kojak"
+          record.option = "Project 5"
           record.unit = "Unit 5";
-          record.project = "Kojak";
+          record.project = "Project 5";
           currentLanguageHours = avgLanguageHours + randomNumber();
           if (daysCounter > 75) {
           // currentLanguageHours = null;

@@ -86,7 +86,10 @@ export default Ember.Component.extend({
       .centerBar(true)
       .title(function(d) {
         let actualHours = +(d.data.value.totalHours).toFixed(1);
-        return d3.time.format("%x: ")(d.x) + actualHours + " student Hours";
+        // let avgHours = d.data.value.totalAvgHours;
+        // let distanceFromMedian = +(100*(avgHours - actualHours)/avgHours).toFixed(0);
+        // let percentile = distanceFromMedian > 50 ? 50 + distanceFromMedian : 50 - distanceFromMedian;
+        return d3.time.format("%x: ")(d.x) + actualHours + " hours ~ "
         return d3.time.format("%a %b %d:  ")(d.x) + "Student Hours: " + actualHours;
       })
       .colorAccessor(function(d, i) {
