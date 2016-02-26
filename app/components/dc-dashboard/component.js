@@ -3,6 +3,10 @@ import Ember from 'ember';
 export default Ember.Component.extend({
 
   rawData: null,
+  longWidth: null,
+  longHeight: null,
+  shortWidth: null,
+  shortHeight: null,
   // cfData: null,
   unitColors: ["black", "rgba(160,190,135,.75)","rgba(160,190,135,1)"],
   // ['#7fc97f','#beaed4','#fdc086','#ffff99','#386cb0']
@@ -414,6 +418,10 @@ export default Ember.Component.extend({
   // }),
 
   renderAll: Ember.on('didRender', function() {
+      this.set('longWidth', $(".long-chart").outerWidth());
+      this.set('longHeight', $(".long-chart").outerWidth()/3);
+      this.set('shortWidth', $(".short-chart").outerWidth()*1.2);
+      this.set('shortHeight', $(".short-chart").outerWidth()/1.5);
       dc.renderAll();
   }),
 

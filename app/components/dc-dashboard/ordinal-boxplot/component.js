@@ -7,7 +7,7 @@ export default Ember.Component.extend({
   width: 500,
   height: 200,
   data: null,
-  classNames: ["col-md-12"],
+  // classNames: ["col-md-12"],
 
   // colors: ["rgba(232,177,114,0.5)", "#E8B172", "rgba(128,222,195,0.5)", "#80DEC3", "rgba(203,188,220,0.5)", "#CBBCDC", "rgba(193,221,121,0.5)", "#C1DD79", "black", "rgb(255,105,97)"],
   // colors: ["rgba(101,144,62,.75)", "#65903E", "rgba(193,82,170,0.75)", "#C152AA", "rgba(198,88,62,0.75)", "#C6583E", "rgba(106,120,185,0.75)", "#6A78B9", "black", "rgb(255,105,97)"],
@@ -96,7 +96,7 @@ export default Ember.Component.extend({
       // .yAxisLabel("Hours")
       .colors(this.get('colors'))
       // .elasticY(true)
-      .gap(50)
+      .gap(40)
       .yAxisPadding('5%')
       .title(function(d) {
         let actualHours = +d.data.value.totalHours.toFixed(1);
@@ -132,7 +132,7 @@ export default Ember.Component.extend({
       .ordering(function(d) {return  -d.value.totalHours; })
       // .centerBar(true)
       // .elasticX(true)
-      .gap(50)
+      .gap(40)
       .renderHorizontalGridLines(true)
       .colors(this.get('colors'))
       // .ordering(function(d) {return  -d.value.totalHours; })

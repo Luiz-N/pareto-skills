@@ -19,7 +19,8 @@
     "dcjs": "1.7.5"
   },
   "resolutions": {
-    "qunit-notifications": "~0.1.0"
+    "qunit-notifications": "~0.1.0",
+    "ember": "2.3.0"
   },
   "devDependencies": {
     "reductio": "~0.5.2"

@@ -4,8 +4,6 @@ export default Ember.Component.extend({
 
   dimension: null,
   group: null,
-  width: 500,
-  height: 200,
   data: null,
   classNames: ["col-md-12"],
 
@@ -137,7 +135,7 @@ export default Ember.Component.extend({
       .xAxisPadding(1)
       .legend(dc.legend().x(60).y(10).itemHeight(13).gap(-5))
       .x(d3.time.scale().domain([minDate,maxDate]))
-      .yAxisLabel("Hours per day")
+      .yAxisLabel("Hours")
       .compose(charts)
       .on('postRender', function(chart) {
         let rects = chart.selectAll('.stack:nth-child(even) rect');
