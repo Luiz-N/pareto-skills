@@ -94,9 +94,9 @@ export default Ember.Component.extend({
         let avgHours = d.data.value.totalAvgHours;
         let actualHours = d.data.value.totalHours;
         if (Math.abs(avgHours - actualHours) > avgStd) {
-          return 8;
+          return 0;
         }
-
+        return 1;
         return d.layer;
       })
 
@@ -117,6 +117,7 @@ export default Ember.Component.extend({
         return d3.time.format("%a %b %d:  ")(d.x) + "Median Hours: " + totalAvgHours + " Stnd Dev: " + std;
       })
       .colorAccessor(function(d, i) {
+        return 1;
         return d.layer - 1;
       })
 
@@ -152,7 +153,7 @@ export default Ember.Component.extend({
               .attr('width', width - 1)
               .css('width', width - 1)
           })
-        $('#boxsOverTime .dc-legend g:nth-child(even)').remove();
+        $(chart.anchor() + ' .dc-legend').remove();
         let remaining = $('#boxsOverTime .dc-legend .dc-legend-item').splice(1);
         $(remaining).remove();
       })

@@ -204,10 +204,11 @@ export default Ember.Route.extend({
           record.project = "Kojak";
           currentLanguageHours = avgLanguageHours + randomNumber();
           if (daysCounter > 75) {
-          currentLanguageHours = null;
+          // currentLanguageHours = null;
           }
           if (daysCounter === 92) {
             avgLanguageHours = avgLanguageHours/5;
+            currentLanguageHours = avgLanguageHours + randomNumber();
           }
         }
 

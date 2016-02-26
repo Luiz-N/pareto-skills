@@ -9,7 +9,7 @@ module.exports = function(environment) {
     contentSecurityPolicy: {
       // 'default-src': "*",
       'script-src': "*",
-      // 'img-src': "*",
+      'img-src': "*",
       'style-src': "*"
       // 'script-src': "'self' 'unsafe-eval' http://localhost:4567",
       // 'connect-src': "*"

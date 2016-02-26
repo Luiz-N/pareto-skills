@@ -79,7 +79,7 @@ export default Ember.Component.extend({
     // dc.barChart(timeSeries)
     timeSeriesBar
       // .renderArea(true)
-      .gap(3)
+      // .gap(3)
       .renderHorizontalGridLines(true)
       .width(this.get('width')).height(this.get('height'))
       .dimension(this.get('dimension'))

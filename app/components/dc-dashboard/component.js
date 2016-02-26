@@ -5,25 +5,27 @@ export default Ember.Component.extend({
   rawData: null,
   longWidth: null,
   longHeight: null,
+  mediumWidth: null,
+  mediumHeight: null,
   shortWidth: null,
   shortHeight: null,
   // cfData: null,
-  unitColors: ["black", "rgba(160,190,135,.75)","rgba(160,190,135,1)"],
+  greyBlack: ["black","rgba(150,150,150,.75)"],
   // ['#7fc97f','#beaed4','#fdc086','#ffff99','#386cb0']
   // languageColors: ["rgba(108,205,248,.5)", "#6CCDF8", "rgba(245,151,141,0.5)", "#F5978D", "rgba(83,242,173,0.5)", "#53F2AD", "rgba(160,190,135,0.5)", "#A0BE87", "black", "rgb(255,105,97)"],
   languageColors: ["rgba(245,151,141,0.5)", "#F5978D", "rgba(160,190,135,0.5)", "#A0BE87", "rgba(108,205,248,.5)", "#6CCDF8", "rgba(253,174,107,0.5)", "#fdae6b", "black", "rgb(255,105,97)"],
 
-  // projectColors: ['rgba(127,201,127,0.5)','#7fc97f','rgba(190,174,212,0.5)','#beaed4','rgba(253,192,134,0.5)', '#fdc086', 'rgba(251,154,153,0.5)', "#fb9a99", 'rgba(56,108,176,0.5)', "#386cb0"],
+  projectColors: ['rgba(127,201,127,0.5)','#7fc97f','rgba(190,174,212,0.5)','#beaed4','rgba(253,192,134,0.5)', '#fdc086', 'rgba(251,154,153,0.5)', "#fb9a99", 'rgba(56,108,176,0.5)', "#386cb0"],
   // langaugeBarColors: ["#A0BE87", "#53F2AD", "#F5978D", "#6CCDF8", "rgba(160,190,135,0.5)", "rgba(83,242,173,0.5)", "rgba(245,151,141,0.5)", "rgba(108,205,248,.5)"],
 
   langaugeBarColors: ["#A0BE87", "#53F2AD", "#F5978D", "#6CCDF8", "rgba(160,190,135,0.5)", "rgba(83,242,173,0.5)", "rgba(245,151,141,0.5)", "rgba(108,205,248,.5)", "black"],
   // langaugeBarColors: ["#A0BE87", "#53F2AD", "#F5978D", "#6CCDF8"],
   // 83,242,173
-  languageBoxColors: ["black", "rgba(253,174,107,1)", "rgba(245,151,141,1)", "rgba(160,190,135,1)", "rgba(108,205,248,1)"],
+  languageBoxColors: ["black", "rgba(253,174,107,.75)", "rgba(245,151,141,.75)", "rgba(160,190,135,.75)", "rgba(108,205,248,.75)"],
 
   // projectColors: ['rgba(127,201,127,0.5)','#7fc97f','rgba(190,174,212,0.5)','#beaed4','rgba(141,160,203,0.5)', "#8da0cb", 'rgba(231,138,195,0.5)', "#e78ac3", 'rgba(253,192,134,0.5)', '#fdc086'],
   // projectColors: ['black','black','rgba(190,174,212,0.5)','#beaed4','rgba(56,108,176,0.5)', "#386cb0", 'rgba(253,192,134,0.5)', '#fdc086', 'rgba(251,154,153,0.5)', "#fb9a99"],
-  projectColors: ["black", "rgba(141,160,203,.75)","rgba(141,160,203,1)"],
+  // projectColors: ["black", "rgba(141,160,203,.75)","rgba(141,160,203,1)"],
   unitOrder: ["Prep Phase", "Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5"],
   projectOrder: ["Exercises", "Benson", "Luther", "Mcnulty", "Fletcher", "Kojak"],
   languageOrder: ["js", "python", "html_css", "sql"],
@@ -421,8 +423,10 @@ export default Ember.Component.extend({
   renderAll: Ember.on('didRender', function() {
       this.set('longWidth', $(".long-chart").outerWidth());
       this.set('longHeight', $(".long-chart").outerWidth()/3);
-      this.set('shortWidth', $(".short-chart").outerWidth()*1.2);
-      this.set('shortHeight', $(".short-chart").outerWidth()/1.5);
+      this.set('shortWidth', $(".short-chart").outerWidth()*1.3);
+      this.set('shortHeight', $(".short-chart").outerWidth()/1.2);
+      this.set('mediumWidth', $(".medium-chart").outerWidth());
+      this.set('mediumHeight', $(".medium-chart").outerWidth()/1.5);
       dc.renderAll();
   }),
 

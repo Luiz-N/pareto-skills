@@ -53,34 +53,16 @@ export default Ember.Component.extend({
         actualPoints
           .group(group.group, group.name)
           .valueAccessor(function(d) {
-            return d.value.totalHours;
+            let line = +(d.value.totalAvgHours).toFixed(2) * .09;
+            if (line > 0.00) {
+              line = 1;
+            }
+            return d.value.totalHours - line;
           })
           .stack(group.group, group.name, function(d) {
-            let line = +(d.value.totalAvgHours).toFixed(1) * .009;
-            if (line === 0) {
-              return line;
-            }
-            return 1;
-            return line < .15 ? 1 : line;
-            return d.value.totalAvgHours * .01;
-            return d.value.totalHours ? 1.5 : null;
+            let line = +(d.value.totalAvgHours).toFixed(2) * .09;
+            return line > 0.00 ? 1 : line;
           })
-      }
-      else {
-        boxPlots
-        .stack(group.group, group.name, function(d) {
-            return d.value.totalAvgHours - d.value.stdAvgSum;
-          })
-        .stack(group.group, group.name, function(d) {
-          return d.value.stdAvgSum * 2;
-        })
-        actualPoints
-        .stack(group.group, group.name, function(d) {
-            return d.value.totalHours;
-          })
-        .stack(group.group, group.name, function(d) {
-          return d.value.totalHours ? 1 : null;
-        })
       }
     })
 
@@ -88,27 +70,23 @@ export default Ember.Component.extend({
       .dimension(this.get('dimension'))
       .x(d3.scale.ordinal().domain(this.get('order')))
       .xUnits(dc.units.ordinal)
-      .ordering(function(d) {return  -d.value.totalHours; })
       .centerBar(true)
-      // .margins({top: 0, right: 50, bottom: 20, left: 40})
-      // .elasticX(true)
-      // .xAxisPadding('5%')
-      // .yAxisLabel("Hours")
       .colors(this.get('colors'))
       // .elasticY(true)
-      .gap(40)
-      .yAxisPadding('5%')
+      .gap(30)
+      // .yAxisPadding('5%')
       .title(function(d) {
-        let actualHours = +d.data.value.totalHours.toFixed(1);
+        let actualHours = d.data.value.totalHours;
         let avgHours = d.data.value.totalAvgHours;
         let avgStd = d.data.value.stdAvgSum;
-        let distanceFromMean = +Math.abs(avgHours - actualHours).toFixed(1);
-        // isOutsideRange = Math.abs(avgHours - actualHours) > avgStd;
+        let distanceFromMean = Math.abs(avgHours - actualHours);
         if (distanceFromMean > avgStd) {
-          return actualHours + " hours ~";
+          return "actualLine ~"
+          // return +actualHours.toFixed(1) + " hours ~ " + +(distanceFromMean/avgHours*100).toFixed(1) + "% from median";
         }
         else {
-          return actualHours + " hours";
+          return "actualLine"
+          return +actualHours.toFixed(1) + " hours " + +(distanceFromMean/avgHours*100).toFixed(1) + "% from median";
         }
         // return d3.time.format("%x: ")(d.x) + "actual";
         // return d3.time.format("%a %b %d:  ")(d.x) + "Student Hours: " + actualHours;
@@ -129,10 +107,9 @@ export default Ember.Component.extend({
       .dimension(this.get('dimension'))
       .x(d3.scale.ordinal().domain(this.get('order')))
       .xUnits(dc.units.ordinal)
-      .ordering(function(d) {return  -d.value.totalHours; })
       // .centerBar(true)
       // .elasticX(true)
-      .gap(40)
+      .gap(30)
       .renderHorizontalGridLines(true)
       .colors(this.get('colors'))
       // .ordering(function(d) {return  -d.value.totalHours; })
@@ -141,7 +118,7 @@ export default Ember.Component.extend({
         let avgStd = d.data.value.stdAvgSum;
         let actualHours = d.data.value.totalHours;
         let avgHours = d.data.value.totalAvgHours;
-        return d.data.key + ": boxplot";
+        return d.data.key + ": boxplot " + +(avgHours-avgStd).toFixed(1) + " - " + +(avgHours+avgStd).toFixed(1) + " hours";
         // return d3.time.format("%x: ")(d.x) + "witin boxplot? " + (Math.abs(avgHours - actualHours) > avgStd).toString();
         // return d3.time.format("%a %b %d:  ")(d.x) + "Median Hours: " + totalAvgHours + " Stnd Dev: " + std;
       })
@@ -188,7 +165,7 @@ export default Ember.Component.extend({
               .css('stroke-width', '2px')
               .css('transform', 'translateX(1px)')
               .css('width', width - 5);
-            $r.text().indexOf("hours") != -1 ? $r.attr("height", "1px").addClass('actual') : null;
+            $r.text().indexOf("actualLine") != -1 ? $r.attr("height", "1px").addClass('actual') : null;
           })
         $(chart.anchor()+' .dc-legend g:nth-child(even)').remove();
         let remaining = $('#boxsOverTime .dc-legend .dc-legend-item').splice(1);
@@ -197,7 +174,7 @@ export default Ember.Component.extend({
       .on('postRedraw', function(chart) {
         let allBoxes = $(chart.anchor() + " rect title:contains('boxplot')").filter(function(i, e) {return $(e).parent().attr("display") != "none" ;});
         let boxPlots = allBoxes.filter(function(i, e) {return $(e).parent().attr("height") != "0" ;});
-        let allActuals = $(chart.anchor() + " rect title:contains('hours')").filter(function(i, e) {return $(e).parent().attr("display") != "none" ;});
+        let allActuals = $(chart.anchor() + " rect title:contains('actualLine')").filter(function(i, e) {return $(e).parent().attr("display") != "none" ;});
         let actualLines = allActuals.filter(function(i, e) {return $(e).parent().attr("height") != "0" ;});
         // let isSelected = $()
         // debugger;
