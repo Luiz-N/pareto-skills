@@ -19,7 +19,7 @@
 }} --}}
 
 
-<div class="container col-md-10 col-md-offset-1">
+<div class="container col-md-11">
   <div class="row">
     <div class="col-md-6">
       <div class="jumbotron">
@@ -119,16 +119,18 @@
               <p class="well well-lg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid fugit pariatur eaque odit quibusdam et, similique suscipit repudiandae molestias excepturi. Accusantium hic ipsum necessitatibus neque illo nostrum ad quasi repellendus.</p>
               <button type="button" class="btn btn-default" {{action "resetCharts"}}>Reset Charts</button>
             </div>
-            <div class="panel-body col-md-offset-6">
-              {{dc-dashboard/ordinal-boxplot
-                dimension=languageDim
-                groups=languageGroupsBarChart
-                width=800
-                height=350
-                order=languageOrder
-                colors=languageBoxColors
-                id="languageBoxPlot"
-              }}
+            <div class="short-chart panel-body col-md-offset-6">
+              {{#if shortHeight}}
+                {{dc-dashboard/ordinal-boxplot
+                  dimension=languageDim
+                  groups=languageGroupsBarChart
+                  width=shortWidth
+                  height=shortHeight
+                  order=languageOrder
+                  colors=languageBoxColors
+                  id="languageBoxPlot"
+                }}
+              {{/if}}
 {{!--               {{dc-dashboard/bar-chart
                 dimension=languageDim
                 group=languageGroupsBarChart
@@ -144,18 +146,20 @@
     </div>
   </div>
 
-  <div class="col-md-12">
+  <div class="row">
     <div class="chart-panel panel panel-default">
       <h4 class="text-center">Coding Time Boxplots</h4>
       <div class="panel-body">
-        {{dc-dashboard/cdf-chart
-          dimension=dailyDateDim
-          group=cdfGroup
-          width=1500
-          height=500
-          id="cdfChart"
-          colors=languageCdfColors
-        }}
+        {{#if longHeight}}
+          {{dc-dashboard/cdf-chart
+            dimension=dailyDateDim
+            group=cdfGroup
+            width=longWidth
+            height=longHeight
+            id="cdfChart"
+            colors=languageCdfColors
+          }}
+        {{/if}}
       </div>
       <div class="panel-footer col-md-12">
         <div class="row">

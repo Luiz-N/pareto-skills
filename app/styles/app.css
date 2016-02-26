@@ -2,6 +2,9 @@ body {
   background-color: whitesmoke;
 }
 
+.container {
+  float: none;
+}
 .dc-chart rect.bar-chart {
   opacity: .5;
 }
