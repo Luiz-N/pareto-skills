@@ -34,7 +34,7 @@
           <h3 class="panel-title">Panel title</h3>
         </div> --}}
           <div class="panel-body col-md-12 text-center">
-            <img src="http://cl.ly/3B3M0l3M2A3q/Image%202016-02-25%20at%206.35.17%20PM.png" alt="">
+            <img src="http://cl.ly/13393X091S0I/Image%202016-02-25%20at%209.27.03%20PM.png" alt="">
           </div>
         <div class="explainer col-md-12">
           <p class="well well-md">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid fugit pariatur eaque odit quibusdam et, similique suscipit repudiandae molestias excepturi. Accusantium hic ipsum necessitatibus neque illo nostrum ad quasi repellendus.</p>
@@ -57,38 +57,40 @@
         {{/if}}
       </div>
       <div class="panel-footer">
-          <div class="chart-panel panel panel-default row">
-            {{!-- <div class="panel-heading">
-              <h3 class="panel-title">Panel title</h3>
-            </div> --}}
-            <div class="short-chart panel-body col-md-6">
-              {{#if shortHeight}}
-                {{dc-dashboard/ordinal-boxplot
-                  dimension=projectDim
-                  groups=projectGroupsBarChart
-                  width=shortWidth
-                  height=shortHeight
-                  colors=projectColors
-                  order=projectOrder
-                  id="projectBoxPlot"
-                }}
-              {{/if}}
-            </div>
+        <div class="chart-panel panel panel-default row">
+          {{!-- <div class="panel-heading">
+            <h3 class="panel-title">Panel title</h3>
+          </div> --}}
+          <div class="short-chart panel-body col-md-6">
+            {{#if shortHeight}}
+              {{dc-dashboard/ordinal-boxplot
+                dimension=projectDim
+                groups=projectGroupsBarChart
+                width=shortWidth
+                height=shortHeight
+                colors=projectColors
+                order=projectOrder
+                id="projectBoxPlot"
+              }}
+            {{/if}}
+          </div>
 
-            <div class="short-chart panel-body col-md-6">
-              {{#if shortHeight}}
-                {{dc-dashboard/ordinal-boxplot
-                  dimension=unitDim
-                  groups=unitGroupsBarChart
-                  width=shortWidth
-                  height=shortHeight
-                  colors=unitColors
-                  order=unitOrder
-                  id="unitBoxPlot"
-                }}
-              {{/if}}
-            </div>
+          <div class="short-chart panel-body col-md-6">
+            {{#if shortHeight}}
+              {{dc-dashboard/ordinal-boxplot
+                dimension=unitDim
+                groups=unitGroupsBarChart
+                width=shortWidth
+                height=shortHeight
+                colors=unitColors
+                order=unitOrder
+                id="unitBoxPlot"
+              }}
+            {{/if}}
+          </div>
+          <p class="well well-lg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid fugit pariatur eaque odit quibusdam et, similique suscipit repudiandae molestias excepturi. Accusantium hic ipsum necessitatibus neque illo nostrum ad quasi repellendus.</p>
         </div>
+        <button type="button" class="btn btn-default" {{action "resetCharts"}}>Reset Charts</button>
       </div>
     </div>
   </div>
@@ -110,36 +112,27 @@
         {{/if}}
       </div>
       <div class="panel-footer col-md-12">
-        <div class="row">
-          <div class="chart-panel panel panel-default col-md-12">
-            {{!-- <div class="panel-heading">
-              <h3 class="panel-title">Panel title</h3>
-            </div> --}}
-            <div class="explainer col-md-6">
-              <p class="well well-lg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid fugit pariatur eaque odit quibusdam et, similique suscipit repudiandae molestias excepturi. Accusantium hic ipsum necessitatibus neque illo nostrum ad quasi repellendus.</p>
-              <button type="button" class="btn btn-default" {{action "resetCharts"}}>Reset Charts</button>
-            </div>
-            <div class="short-chart panel-body col-md-offset-6">
-              {{#if shortHeight}}
-                {{dc-dashboard/ordinal-boxplot
-                  dimension=languageDim
-                  groups=languageGroupsBarChart
-                  width=shortWidth
-                  height=shortHeight
-                  order=languageOrder
-                  colors=languageBoxColors
-                  id="languageBoxPlot"
-                }}
-              {{/if}}
-{{!--               {{dc-dashboard/bar-chart
+        <div class="chart-panel panel panel-default row">
+          {{!-- <div class="panel-heading">
+            <h3 class="panel-title">Panel title</h3>
+          </div> --}}
+          <div class="explainer col-md-6 text-center">
+            <img src="http://cl.ly/2n2j2j1o270c/Image%202016-02-25%20at%209.55.04%20PM.png" alt="">
+            <p class="well well-lg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid fugit pariatur eaque odit quibusdam et, similique suscipit repudiandae molestias excepturi. Accusantium hic ipsum necessitatibus neque illo nostrum ad quasi repellendus.</p>
+            <button type="button" class="btn btn-default" {{action "resetCharts"}}>Reset Charts</button>
+          </div>
+          <div class="short-chart panel-body col-md-offset-6">
+            {{#if shortHeight}}
+              {{dc-dashboard/ordinal-boxplot
                 dimension=languageDim
-                group=languageGroupsBarChart
-                width=700
-                height=350
-                colors=langaugeBarColors
-                id="languageBarChart"
-              }} --}}
-            </div>
+                groups=languageGroupsBarChart
+                width=shortWidth
+                height=shortHeight
+                order=languageOrder
+                colors=languageBoxColors
+                id="languageBoxPlot"
+              }}
+            {{/if}}
           </div>
         </div>
       </div>
@@ -167,6 +160,7 @@
             {{!-- <div class="panel-heading">
               <h3 class="panel-title">Panel title</h3>
             </div> --}}
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Cumulative_distribution_function_of_Pareto_distribution.svg/650px-Cumulative_distribution_function_of_Pareto_distribution.svg.png" alt="">
             <div class="explainer col-md-6">
               <p class="well well-lg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid fugit pariatur eaque odit quibusdam et, similique suscipit repudiandae molestias excepturi. Accusantium hic ipsum necessitatibus neque illo nostrum ad quasi repellendus.</p>
               <button type="button" class="btn btn-default" {{action "resetCharts"}}>Reset Charts</button>

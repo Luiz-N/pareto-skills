@@ -9,6 +9,11 @@ body {
   opacity: .5;
 }
 
+.panel-footer .well{
+  display: inline-block;
+  margin: 0 15px 15px 15px;
+}
+
 .dc-chart rect.gap {
   transform: translate(2px, -1px);
   stroke-width: 3px;
@@ -34,5 +39,5 @@ body {
 }
 
 .chart-panel img {
-  width: 50%;
+  width: 70%;
 }
