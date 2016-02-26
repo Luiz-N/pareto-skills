@@ -96,7 +96,7 @@ export default Ember.Component.extend({
       // .yAxisLabel("Hours")
       .colors(this.get('colors'))
       // .elasticY(true)
-      .gap(5)
+      .gap(50)
       .yAxisPadding('5%')
       .title(function(d) {
         let actualHours = +d.data.value.totalHours.toFixed(1);
@@ -132,6 +132,8 @@ export default Ember.Component.extend({
       .ordering(function(d) {return  -d.value.totalHours; })
       // .centerBar(true)
       // .elasticX(true)
+      .gap(50)
+      .renderHorizontalGridLines(true)
       .colors(this.get('colors'))
       // .ordering(function(d) {return  -d.value.totalHours; })
       .title(function(d) {
@@ -183,7 +185,7 @@ export default Ember.Component.extend({
           let width = $r.attr('width');
             $r.css('fill','white')
               .css('stroke', newColor)
-              .css('stroke-width', '1px')
+              .css('stroke-width', '2px')
               .css('transform', 'translateX(1px)')
               .css('width', width - 5);
             $r.text().indexOf("hours") != -1 ? $r.attr("height", "1px").addClass('actual') : null;

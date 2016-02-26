@@ -142,14 +142,14 @@ export default Ember.Route.extend({
             record.project = "Mcnulty";
             record.option = "Mcnulty";
             if (languageKey === "js") {
-              avgLanguageHours = avgLanguageHours*1.15;
-              currentLanguageHours = avgLanguageHours + randomNumber();
+              avgLanguageHours = avgLanguageHours*1.1;
+              currentLanguageHours = avgLanguageHours - randomNumber(0,1);
               tools.push("D3");
               tools.push("jQuery");
             }
             else if (languageKey === "html_css") {
               avgLanguageHours = avgLanguageHours*1.1;
-              currentLanguageHours = avgLanguageHours + randomNumber();
+              currentLanguageHours = avgLanguageHours - randomNumber(0,1);
               tools.push("Bootstrap");
             }
             else {
@@ -157,7 +157,7 @@ export default Ember.Route.extend({
               tools.push("pandas");
               tools.push("scipy");
               avgLanguageHours = avgLanguageHours/2;
-              currentLanguageHours = avgLanguageHours + randomNumber();
+              currentLanguageHours = avgLanguageHours + randomNumber(0,1);
             }
           }
         }
@@ -166,7 +166,7 @@ export default Ember.Route.extend({
           record.unit = "Unit 4";
           // record.project = "Fletcher";
           if (languageKey == "python") {
-            avgLanguageHours = avgLanguageHours*1.1;
+            avgLanguageHours = avgLanguageHours;
             currentLanguageHours = avgLanguageHours + randomNumber();
             tools.push("flask");
             tools.push("pandas");
@@ -174,18 +174,18 @@ export default Ember.Route.extend({
             tools.push("scipy");
           }
           else if (languageKey == "js") {
-            avgLanguageHours = avgLanguageHours*1.1;
+            avgLanguageHours = avgLanguageHours;
             currentLanguageHours = avgLanguageHours;
             tools.push("D3");
             tools.push("jQuery");
           }
           else if (languageKey = "html_css") {
-            avgLanguageHours = avgLanguageHours/1.1;
-            currentLanguageHours = avgLanguageHours + randomNumber();
+            avgLanguageHours = avgLanguageHours;
+            currentLanguageHours = avgLanguageHours;
             tools.push("Bootstrap");
           }
           else {
-            avgLanguageHours = avgLanguageHours/1.1;
+            avgLanguageHours = avgLanguageHours*.75;
             currentLanguageHours = avgLanguageHours;
           }
           if (daysCounter > 56) {

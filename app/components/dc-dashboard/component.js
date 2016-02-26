@@ -4,24 +4,25 @@ export default Ember.Component.extend({
 
   rawData: null,
   // cfData: null,
-  unitColors: ["black", "rgba(127,201,127,1)","rgba(127,201,127,.75)"],
+  unitColors: ["black", "rgba(160,190,135,.75)","rgba(160,190,135,1)"],
   // ['#7fc97f','#beaed4','#fdc086','#ffff99','#386cb0']
   // languageColors: ["rgba(108,205,248,.5)", "#6CCDF8", "rgba(245,151,141,0.5)", "#F5978D", "rgba(83,242,173,0.5)", "#53F2AD", "rgba(160,190,135,0.5)", "#A0BE87", "black", "rgb(255,105,97)"],
-  languageColors: ["rgba(245,151,141,0.5)", "#F5978D", "rgba(83,242,173,0.5)", "#53F2AD", "rgba(108,205,248,.5)", "#6CCDF8", "rgba(160,190,135,0.5)", "#A0BE87", "black", "rgb(255,105,97)"],
+  languageColors: ["rgba(245,151,141,0.5)", "#F5978D", "rgba(160,190,135,0.5)", "#A0BE87", "rgba(108,205,248,.5)", "#6CCDF8", "rgba(253,174,107,0.5)", "#fdae6b", "black", "rgb(255,105,97)"],
 
   // projectColors: ['rgba(127,201,127,0.5)','#7fc97f','rgba(190,174,212,0.5)','#beaed4','rgba(253,192,134,0.5)', '#fdc086', 'rgba(251,154,153,0.5)', "#fb9a99", 'rgba(56,108,176,0.5)', "#386cb0"],
   // langaugeBarColors: ["#A0BE87", "#53F2AD", "#F5978D", "#6CCDF8", "rgba(160,190,135,0.5)", "rgba(83,242,173,0.5)", "rgba(245,151,141,0.5)", "rgba(108,205,248,.5)"],
 
   langaugeBarColors: ["#A0BE87", "#53F2AD", "#F5978D", "#6CCDF8", "rgba(160,190,135,0.5)", "rgba(83,242,173,0.5)", "rgba(245,151,141,0.5)", "rgba(108,205,248,.5)", "black"],
   // langaugeBarColors: ["#A0BE87", "#53F2AD", "#F5978D", "#6CCDF8"],
-  languageBoxColors: ["black", "rgba(160,190,135,1)", "rgba(245,151,141,1)", "rgba(83,242,173,1)", "rgba(108,205,248,1)"],
+  // 83,242,173
+  languageBoxColors: ["black", "rgba(253,174,107,1)", "rgba(245,151,141,1)", "rgba(160,190,135,1)", "rgba(108,205,248,1)"],
   projectColors: ['rgba(127,201,127,0.5)','#7fc97f','rgba(190,174,212,0.5)','#beaed4','rgba(141,160,203,0.5)', "#8da0cb", 'rgba(231,138,195,0.5)', "#e78ac3", 'rgba(253,192,134,0.5)', '#fdc086'],
   // projectColors: ['black','black','rgba(190,174,212,0.5)','#beaed4','rgba(56,108,176,0.5)', "#386cb0", 'rgba(253,192,134,0.5)', '#fdc086', 'rgba(251,154,153,0.5)', "#fb9a99"],
 
   unitOrder: ["Prep Phase", "Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5"],
   projectOrder: ["Exercises", "Benson", "Luther", "Mcnulty", "Fletcher", "Kojak"],
   languageOrder: ["js", "python", "html_css", "sql"],
-  languageCdfColors: ["#53F2AD", "#F5978D","#A0BE87","#6CCDF8", "black", "rgb(255,105,97)"],
+  languageCdfColors: ["#A0BE87", "#F5978D","#fdae6b","#6CCDF8", "black", "rgb(255,105,97)"],
 
   cfData: Ember.computed('rawData',
     function() {
