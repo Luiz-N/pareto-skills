@@ -206,13 +206,13 @@ export default Ember.Route.extend({
           record.option = "Project 5"
           record.unit = "Unit 5";
           record.project = "Project 5";
-          currentLanguageHours = avgLanguageHours + randomNumber();
+          currentLanguageHours = avgLanguageHours + randomNumber()/2;
           if (daysCounter > 75) {
           // currentLanguageHours = null;
           }
           if (daysCounter === 92) {
             avgLanguageHours = avgLanguageHours/5;
-            currentLanguageHours = avgLanguageHours + randomNumber();
+            currentLanguageHours = avgLanguageHours + randomNumber()/2;
           }
         }
 

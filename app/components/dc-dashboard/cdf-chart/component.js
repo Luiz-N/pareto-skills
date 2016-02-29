@@ -53,7 +53,7 @@ export default Ember.Component.extend({
       //   debugger;
       //   return d.value.totalPercent;
       // })
-      .margins({top: 10, right: 50, bottom: 20, left: 60})
+      .margins({top: 10, right: 50, bottom: 20, left: 65})
         .brushOn(false)
         .legend(dc.legend().x(70).y(10).itemHeight(13).gap(5))
       // .yAxisLabel('% of a "master"')

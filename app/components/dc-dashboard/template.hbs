@@ -13,11 +13,12 @@
   </div>
 </div> --}}
 <div class="container col-md-10 col-md-offset-1">
+  <button type="button" class="btn btn-default" {{action "resetCharts"}}>Reset Charts</button>
   <div class="row">
     <div class="col-md-12">
       <div class="jumbotron">
         <h2>Pareto Time Tracker</h2>
-        <p>This site is a front-end demo of a potential tool loosely tailored for a data-science bootcamp. The tool would be able to log any student's coding activity by detecting languages, libraries, and even project names. The collection of data would utilize the <a target="_blank" href="https://wakatime.com">WakaTime Service</a> which, when installed as an extension on IDEs or coding notebooks, will passively collect and push the data to the tool's server.</p>
+        <p>This site is a front-end demo of a potential tool loosely tailored for a data-science bootcamp. The tool would be able to log any student's coding activity by detecting languages, libraries, and even project names. The collection of data would rely on a custom implementation of the <a target="_blank" href="https://wakatime.com">WakaTime Service.</a></p>
         <p>The dashboard below shows the fictional data of a student named Fred whose activity is being compared to the historical population of all previous students who have gone through the bootcamp. The goal of the interactive charts below are to spot any outliers in Fred's time.</p>
       </div>
     </div>
@@ -45,12 +46,12 @@
       </div>
     </div>
   </div> --}}
-  <button type="button" class="btn btn-default" {{action "resetCharts"}}>Reset Charts</button>
 
   <div class="row">
     <div class="chart-panel panel panel-default">
-      <h4 class="text-center">Daily Student Hours from Median</h4>
       <div class="long-chart panel-body">
+        <p class="well well-sm">This chart shows where Fred's daily coding activity, split by language, diverted from the historical median. The bolder colors highlight the portion of those hours that fall outside the middle half of the distribution. It looks like Fred spent less time than normal on Python during the prep phase which might explain the opposite pattern during Unit 1. Being able to track a student's readiness before arriving is key to a succesful bootcamp. Can you notice any other patterns? Try hovering over the legend or clicking and dragging on the chart to filter the data.</p>
+        <h4 class="text-center">Daily Student Hours from Median</h4>
         {{#if longHeight}}
           {{dc-dashboard/language-gaps
             dimension=dailyDateDim
@@ -66,7 +67,7 @@
           <div class="panel-body col-md-6 text-center">
             <img src="http://cl.ly/13393X091S0I/Image%202016-02-25%20at%209.27.03%20PM.png" alt="">
             <div class="explainer">
-              <p class="well well-sm">These simplified boxplots show where Fred's hours fall relative to the IQR of different facets of the whole population. If his time falls within the box then his line matches the box's color otherwise it is highlighted black.</p>
+              <p class="well well-sm">These simplified boxplots show where Fred's hours fall relative to the middle half or <a href="https://en.wikipedia.org/wiki/Interquartile_range">"IQR"</a> of different facets of the historical distribution. If his time falls within that range then his line matches the box's color otherwise it could be a potential outlier and thus highlighted black.</p>
             </div>
           </div>
           <div class="short-chart panel-body col-md-6">
@@ -119,7 +120,7 @@
               }}
             {{/if}}
           </div>
-        <p class="well well-md">Clicking on the charts above allow you to dynamically filter and explore the data. For this case it looks like Fred spent significantly less time than normal during the prep phase which might explain his above average time usage during the first unit on Project 1. It looks like he was able to recover but this might not always be the case. Being able to track a student's readiness before arriving is key to a succesful bootcamp. If you click on Project 4 you'll also see that it seems like Fred was in charge of the javascript portion of the project. You can reset the charts at anytime by clicking the button below.</p>
+        <p class="well well-md">Clicking on the charts above allow you to dynamically filter and explore the data. You can also reset the charts at any time via the button on the bottom right. For this use case all coding activity that wasn't part of a project were bucketed into their own type of "project" called exercises. This helps to distinguish and analyze Fred's time between indvidual exercises or group projects.</p>
           <div class="long-chart panel-body">
             <div class="panel-heading">
               <h3 class="panel-title text-center">Boxplots Grouped by Day</h3>
@@ -145,7 +146,7 @@
       <div class="panel-body col-md-5">
         {{!-- <img src="http://cl.ly/231V3D241M2W/Image%202016-02-26%20at%2011.10.34%20AM.png" alt=""> --}}
         <div class="explainer">
-          <p class="well well-md">To understand this section it will help to first click the reset button at the lower right. The chart on the right is an attempt at applying a <a href="https://en.wikipedia.org/wiki/Pareto_principle" target="_blank">Pareto Distribution</a> to Malcom Gladwell's 10,000 Hour Theory. <a target="_blank" href="http://techcrunch.com/2015/10/17/specialization-polymaths-and-the-pareto-principle-in-a-convergence-economy/">This article</a> does a good job of explaining the concept. Basically the first 2,000 hours of coding should take you 80% of the way to being a master. Pareto's law is much less controversial than Gladwell's but if we assume that most hours at a bootcamp are "deliberate practice" simply due to the novelty of the languages/concepts and the structure of the bootcamp constantly pushing the student there might be some merit to it. If it is true it could help explain the naive <a target="_blank" href="https://www.google.com/search?q=dunning+kruger+effect&safe=off&espv=2&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjcq6Scp5bLAhXD9R4KHfBzBZEQ_AUIBygB&biw=1440&bih=805#imgrc=qJ8kM68JCoQoIM%3A">spike in confidence</a> some people obtain after learning new skills but before really having credible experience.</p>
+          <p class="well well-md">To understand this section it will help to first click the reset button at the lower right. The chart on the right is an attempt at applying a <a href="https://en.wikipedia.org/wiki/Pareto_principle" target="_blank">Pareto Distribution</a> to Malcom Gladwell's 10,000 Hour Theory. <a target="_blank" href="http://techcrunch.com/2015/10/17/specialization-polymaths-and-the-pareto-principle-in-a-convergence-economy/">This article</a> does a good job of explaining the concept. Basically the first 2,000 hours of coding should take you 80% of the way to being a master. Pareto's law is much less controversial than Gladwell's but when put together like this may lay the foundation for an interesting type of benchmarking. This idea could also potentially help explain the naive <a target="_blank" href="https://www.google.com/search?q=dunning+kruger+effect&safe=off&espv=2&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjcq6Scp5bLAhXD9R4KHfBzBZEQ_AUIBygB&biw=1440&bih=805#imgrc=qJ8kM68JCoQoIM%3A">spike in confidence</a> some people obtain after learning new skills but before really having credible experience.</p>
           <p class="well well-md">What I like about this chart is how encouraging Fred's progress has been but at the same time how honest the shape of the curve is at implying the long road ahead for him. A dashboard of data like this would be very compelling to show prospective employers.</p>
         </div>
       </div>

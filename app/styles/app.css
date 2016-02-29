@@ -1,10 +1,15 @@
 body {
   background-color: whitesmoke;
 }
-
 .container {
   float: none;
 }
+
+.container .dc-chart text {
+  font-size: 11px;
+}
+
+/*.container */
 
 .jumbotron {
   background: lightgrey;
