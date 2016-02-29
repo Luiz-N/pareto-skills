@@ -423,8 +423,8 @@ export default Ember.Component.extend({
   renderAll: Ember.on('didRender', function() {
       this.set('longWidth', $(".long-chart").outerWidth());
       this.set('longHeight', $(".long-chart").outerWidth()/3);
-      this.set('shortWidth', $(".short-chart").outerWidth()*1.3);
-      this.set('shortHeight', $(".short-chart").outerWidth()/1.2);
+      this.set('shortWidth', $(".short-chart").outerWidth()*1.1);
+      this.set('shortHeight', $(".short-chart").outerWidth()/1.65);
       this.set('mediumWidth', $(".medium-chart").outerWidth());
       this.set('mediumHeight', $(".medium-chart").outerWidth()/1.5);
       dc.renderAll();
@@ -438,6 +438,7 @@ export default Ember.Component.extend({
       $("rect.selected").each(function(i, e) {
         $(e).attr("display") ? e.dispatchEvent(d3Click) : null;
       })
+      ga('send', 'event', 'charts', 'reset');
     }
   }
 

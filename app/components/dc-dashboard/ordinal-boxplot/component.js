@@ -73,7 +73,7 @@ export default Ember.Component.extend({
       .centerBar(true)
       .colors(this.get('colors'))
       // .elasticY(true)
-      .gap(30)
+      .gap(40)
       // .yAxisPadding('5%')
       .title(function(d) {
         let actualHours = d.data.value.totalHours;
@@ -81,11 +81,11 @@ export default Ember.Component.extend({
         let avgStd = d.data.value.stdAvgSum;
         let distanceFromMean = Math.abs(avgHours - actualHours);
         if (distanceFromMean > avgStd) {
-          return "actualLine ~"
+          return "actualLine ~ " + distanceFromMean ;
           // return +actualHours.toFixed(1) + " hours ~ " + +(distanceFromMean/avgHours*100).toFixed(1) + "% from median";
         }
         else {
-          return "actualLine"
+          return "actualLine " + distanceFromMean;
           return +actualHours.toFixed(1) + " hours " + +(distanceFromMean/avgHours*100).toFixed(1) + "% from median";
         }
         // return d3.time.format("%x: ")(d.x) + "actual";
@@ -109,7 +109,7 @@ export default Ember.Component.extend({
       .xUnits(dc.units.ordinal)
       // .centerBar(true)
       // .elasticX(true)
-      .gap(30)
+      .gap(40)
       .renderHorizontalGridLines(true)
       .colors(this.get('colors'))
       // .ordering(function(d) {return  -d.value.totalHours; })
