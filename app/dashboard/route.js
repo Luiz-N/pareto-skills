@@ -5,6 +5,12 @@ export default Ember.Route.extend({
   // randomNumber: function(min, max) {
   //   return Math.floor(Math.random()*max) + min;
   // },
+  beforeModel (p) {
+    let tag = p.state.queryParams.t;
+    if (tag) {
+      ga('send', 'event', 'taggedViewer', tag);
+    }
+  },
 
   randomNumber: function(min, max) {
     min = min || -1;
